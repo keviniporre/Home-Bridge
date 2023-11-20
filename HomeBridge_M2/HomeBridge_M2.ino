@@ -7,13 +7,13 @@
 //PIN CONFIGURATION
 int controlPin = 13;
 int motionPin = 16;
-int relayPin1 = 15;
+int relayPin1 = 22; //changed from 19
 int relayPin2 = 18;
 int relayPin3 = 19;
 int relayPin4 = 21;
 int touchPin1 = 26;
 int touchPin2 = 27;
-int touchPin3 = 32;
+int touchPin3 = 34;//changed from 32
 int touchPin4 = 35;
 
 void setup() {
