@@ -1,0 +1,7 @@
+//////////////////////////////////
+//        BRIDGE SENSORS        //
+//////////////////////////////////
+
+#include "DHT.h"
+#define DHTPIN 17
+#define DHTTYPE DHT22 
