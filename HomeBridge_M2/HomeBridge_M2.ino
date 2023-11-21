@@ -25,9 +25,11 @@ int touchPin4 = 35;   // bar light
 int touchPin5 = 34;   // TV light
 
 void setup() {
+
 //////////////////////////////////////////////////////////
 // BASIC SETUP
 //////////////////////////////////////////////////////////
+
   Serial.begin(115200);   // Start the Serial interface
   homeSpan.setPairingCode("11144333");  // set pairing code
   homeSpan.setQRID("111-44-333");       // set QR pairing format
@@ -36,8 +38,9 @@ void setup() {
   homeSpan.setStatusPin(statusPin);    // set onboard status LED for control pin
 
   homeSpan.begin(Category::Bridges,"HomeSpan Bridge");      // Initialize HomeSpan
+
 //////////////////////////////////////////////////////////
-// ACCESSORIES
+// ACCESSORIES SETUP
 //////////////////////////////////////////////////////////
 
 //Creating the HAP Accessory Attribute Database
