@@ -62,7 +62,30 @@ void setup() {
     new DEV_Identify("Motion Sensor","IPSOL Industries","M1-MS01","Smart PIR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
     new DEV_MotionSensor(motionPin);        // Create a Motion Sensor (see DEV_Sensors.h for definition)
 
+//RELAY SWITCH #1
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Switch 1","IPSOL Industries","M1-SSR01","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Relay(relayPin1, touchPin1);    // Create a Relay Switch (see DEV_Relay.h for definition)
 
+//RELAY SWITCH #2
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Switch 2","IPSOL Industries","M1-SSR02","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Relay(relayPin2, touchPin2);    // Create a Relay Switch (see DEV_Relay.h for definition)
+
+//RELAY SWITCH #3
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Switch 3","IPSOL Industries","M1-SSR03","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Relay(relayPin3, touchPin3);    // Create a Relay Switch (see DEV_Relay.h for definition)
+
+//RELAY SWITCH #4
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Switch 4","IPSOL Industries","M1-SSR04","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Relay(relayPin4, touchPin4);    // Create a Relay Switch (see DEV_Relay.h for definition)
+
+//RELAY SWITCH #5
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Switch 5","IPSOL Industries","M1-SSR05","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Relay(relayPin5, touchPin5);    // Create a Relay Switch (see DEV_Relay.h for definition)
 
 //////////////////////////////////////////////////////////
 }
