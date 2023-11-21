@@ -24,11 +24,19 @@ int touchPin4 = 35;   // bar light
 int touchPin5 = 34;   // TV light
 
 void setup() {
-  // put your setup code here, to run once:
+
+  Serial.begin(115200);   // Start the Serial interface
+  homeSpan.setPairingCode("11144333");  // set pairing code
+  homeSpan.setQRID("111-44-333");       // set QR pairing format
+
+  homeSpan.setControlPin(controlPin);   // set push button pin to reset wifi settings
+  homeSpan.setStatusPin(2);    // set onboard status LED for control pin
+
+  homeSpan.begin(Category::Bridges,"HomeSpan Bridge");      // Initialize HomeSpan
 
 }
+//////////////////////////////////////////////////////////
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  homeSpan.poll();
 }
