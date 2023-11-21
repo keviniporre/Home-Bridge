@@ -39,13 +39,33 @@ void setup() {
 //////////////////////////////////////////////////////////
 // ACCESSORIES
 //////////////////////////////////////////////////////////
+
 //Creating the HAP Accessory Attribute Database
   new SpanAccessory();       // Instantiating a new SpanAccessory object
     new DEV_Identify("HomeKit Bridge","IPSOL Industries","M1-HKB01","Homekit Bridge M1","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)  
     new Service::HAPProtocolInformation();    // XXXXX************ PENDING INFO ****************************XXXXX
     new Characteristic::Version("1.1.0");
-}
+
+//TEMPERATURE SENSOR      
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Temperature Sensor","IPSOL Industries","M1-TS01","Smart DHT22","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)                                            
+    new DEV_TempSensor();   // Create a Temperature Sensor (see DEV_Sensors.h for definition)
+        
+//HUMIDITY SENSOR
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Humidity Sensor","IPSOL Industries","M1-HS01","Smart DHT22","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_HumSensor();    // Create a Humidity Sensor (see DEV_Sensors.h for definition)
+
+//MOTION SENSOR
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    //new Service::AccessoryInformation();    // XXXXX************ PENDING INFO ****************************XXXXX
+    new DEV_Identify("Motion Sensor","IPSOL Industries","M1-MS01","Smart PIR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_MotionSensor(motionPin);        // Create a Motion Sensor (see DEV_Sensors.h for definition)
+
+
+
 //////////////////////////////////////////////////////////
+}
 
 void loop() {
   homeSpan.poll();
