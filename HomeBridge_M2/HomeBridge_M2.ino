@@ -65,6 +65,8 @@ void setup() {
     new DEV_Identify("Motion Sensor","IPSOL Industries","M1-MS01","Smart PIR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
     new DEV_MotionSensor(motionPin);        // Create a Motion Sensor (see DEV_Sensors.h for definition)
 
+//CONTACT SENSOR #1
+
 //RELAY SWITCH #1
   new SpanAccessory();      // Instantiating a new SpanAccessory object
     new DEV_Identify("Switch 1","IPSOL Industries","M1-SSR01","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)

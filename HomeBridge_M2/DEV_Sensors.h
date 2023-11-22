@@ -44,8 +44,7 @@ struct DEV_TempSensor : Service::TemperatureSensor {
 };
 
 ////////////////////////////////////
-
-// A standalone Humidity sensor
+// HUMIDITY SENSOR
 struct DEV_HumSensor : Service::HumiditySensor {     
 
   // reference to the Current Humidity Characteristic
@@ -85,8 +84,7 @@ struct DEV_HumSensor : Service::HumiditySensor {
 };
 
 //////////////////////////////////
-
-// A standalone Motion sensor
+// MOTION SENSOR
 struct DEV_MotionSensor : Service::MotionSensor {                       // Motion sensor
 
   SpanCharacteristic *movement;                                         // reference to the MotionDetected Characteristic
@@ -97,13 +95,12 @@ struct DEV_MotionSensor : Service::MotionSensor {                       // Motio
     this->sensorPin = sensorPin;
     pinMode(sensorPin, INPUT);
     boolean motion = digitalRead(sensorPin);
-    movement = new Characteristic::MotionDetected(motion);               // instantiate the MotionDetected Characteristic            // instantiate the MotionDetected Characteristic
-
+    movement = new Characteristic::MotionDetected(motion);               // instantiate the MotionDetected Characteristic            
   } // end constructor
 
   void loop() {
 
-    if (movement->timeVal() > 100) {
+    if (movement->timeVal() > 200) {
       boolean motion = digitalRead(sensorPin);
       if (motion != movement->getVal()) {
         movement->setVal(motion);
@@ -116,3 +113,29 @@ struct DEV_MotionSensor : Service::MotionSensor {                       // Motio
     }
   }
 };
+
+//////////////////////////////////
+// CONTACT SENSOR
+struct DEV_ContactSensor : Service::ContactSensor {
+
+  SpanCharacteristic *contact;
+  int contactPin;
+
+  // constructor() method
+  DEV_ContactSensor(int contactPin) : Service::ContactSensor(){
+    this->contactPin = contactPin;
+    pinMode(contactPin, INPUT);
+    uint8_t contacted = digitalRead(contactPin);
+    contact = new characteristic::ContactSensorState(contacted);
+  }// end constructor
+
+  void loop() {
+    if (contact->timeVal() > 200) {
+      uint8_t contacted = digitalRead(contactPin);
+      if (contacted != contact->getVal()) {
+        contact->setVal(contacted);
+        if (contacted == HIGH){
+          char c[64];
+          sprintf(c, "Contact was detected\n");
+          LOG1(c);
+        }
