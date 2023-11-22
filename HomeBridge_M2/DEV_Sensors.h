@@ -126,11 +126,10 @@ struct DEV_ContactSensor : Service::ContactSensor {
     this->contactPin = contactPin;
     pinMode(contactPin, INPUT);
     uint8_t contacted = digitalRead(contactPin);
-    contact = new characteristic::ContactSensorState(contacted);
+    contact = new Characteristic::ContactSensorState(contacted);
   }// end constructor
 
   void loop() {
-    if (contact->timeVal() > 200) {
       uint8_t contacted = digitalRead(contactPin);
       if (contacted != contact->getVal()) {
         contact->setVal(contacted);
@@ -139,3 +138,6 @@ struct DEV_ContactSensor : Service::ContactSensor {
           sprintf(c, "Contact was detected\n");
           LOG1(c);
         }
+      }
+  }
+};

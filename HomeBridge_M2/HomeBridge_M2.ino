@@ -1,5 +1,5 @@
 //INCLUDE LIBRARIES
-#include "HomeSpan.h"
+#include "HomeSpan.h" 
 #include "DEV_Identify.h"      
 #include "DEV_Sensors.h"
 #include "DEV_Relay.h"
@@ -10,8 +10,8 @@ int statusPin = 2;    // onboard status LED
 // SENSORS INPUT SIGNAL PIN
 int contactPin1 = 22;  // main door
 int contactPin2 = 23;  // aux door
-int motionPin = 26;   // main door
-int dhtPin = 4;       // main control
+int motionPin = 27;   // main door
+//int dhtPin = 4;       // main control
 // RELAYS OUTPUT SIGNAL PIN
 int relayPin1 = 16;   // main light
 int relayPin2 = 17;   // second light
@@ -19,7 +19,7 @@ int relayPin3 = 18;   // outside light
 int relayPin4 = 19;   // bar light
 int relayPin5 = 21;   // TV light
 // TOUCH INPUT SIGNAL PIN
-int touchPin1 = 25;   // main light
+int touchPin1 = 26;   // main light
 int touchPin2 = 33;   // second light
 int touchPin3 = 32;   // outside light
 int touchPin4 = 35;   // bar light
@@ -78,32 +78,34 @@ void setup() {
 
 //RELAY SWITCH #1
   new SpanAccessory();      // Instantiating a new SpanAccessory object
-    new DEV_Identify("Switch 1","IPSOL Industries","M1-SSR01","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Identify("Switch One","IPSOL Industries","M1-SSR01","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
     new DEV_Relay(relayPin1, touchPin1);    // Create a Relay Switch (see DEV_Relay.h for definition)
 
 //RELAY SWITCH #2
   new SpanAccessory();      // Instantiating a new SpanAccessory object
-    new DEV_Identify("Switch 2","IPSOL Industries","M1-SSR02","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Identify("Switch Two","IPSOL Industries","M1-SSR02","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
     new DEV_Relay(relayPin2, touchPin2);    // Create a Relay Switch (see DEV_Relay.h for definition)
 
 //RELAY SWITCH #3
   new SpanAccessory();      // Instantiating a new SpanAccessory object
-    new DEV_Identify("Switch 3","IPSOL Industries","M1-SSR03","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Identify("Switch Three","IPSOL Industries","M1-SSR03","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
     new DEV_Relay(relayPin3, touchPin3);    // Create a Relay Switch (see DEV_Relay.h for definition)
 
 //RELAY SWITCH #4
   new SpanAccessory();      // Instantiating a new SpanAccessory object
-    new DEV_Identify("Switch 4","IPSOL Industries","M1-SSR04","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Identify("Switch Four","IPSOL Industries","M1-SSR04","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
     new DEV_Relay(relayPin4, touchPin4);    // Create a Relay Switch (see DEV_Relay.h for definition)
 
 //RELAY SWITCH #5
   new SpanAccessory();      // Instantiating a new SpanAccessory object
-    new DEV_Identify("Switch 5","IPSOL Industries","M1-SSR05","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_Identify("Switch Five","IPSOL Industries","M1-SSR05","Smart SSR","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
     new DEV_Relay(relayPin5, touchPin5);    // Create a Relay Switch (see DEV_Relay.h for definition)
 
 //////////////////////////////////////////////////////////
 }
 
-void loop() {
+void loop(){
+  
   homeSpan.poll();
-}
+  
+} // end of loop()
