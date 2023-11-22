@@ -38,7 +38,7 @@ void loop(){
         turnON();
         power->setVal(1);
       }
-      while (digitalRead(touchPin)==HIGH) { delay(10); }
+      while (digitalRead(touchPin)==HIGH) { delay(20); }
   }
 } // end loop
 
