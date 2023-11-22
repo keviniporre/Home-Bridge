@@ -8,7 +8,8 @@
 int controlPin = 13;  // reset wifi settings
 int statusPin = 2;    // onboard status LED
 // SENSORS INPUT SIGNAL PIN
-int contactPin = 27;  // main door
+int contactPin1 = 22;  // main door
+int contactPin2 = 23;  // aux door
 int motionPin = 26;   // main door
 int dhtPin = 4;       // main control
 // RELAYS OUTPUT SIGNAL PIN
@@ -19,7 +20,7 @@ int relayPin4 = 19;   // bar light
 int relayPin5 = 21;   // TV light
 // TOUCH INPUT SIGNAL PIN
 int touchPin1 = 25;   // main light
-int touchPin2 = 23;   // second light
+int touchPin2 = 33;   // second light
 int touchPin3 = 32;   // outside light
 int touchPin4 = 35;   // bar light
 int touchPin5 = 34;   // TV light
@@ -66,6 +67,14 @@ void setup() {
     new DEV_MotionSensor(motionPin);        // Create a Motion Sensor (see DEV_Sensors.h for definition)
 
 //CONTACT SENSOR #1
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Contact Sensor 1","IPSOL Industries","M1-CS01","Smart Contact","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_ContactSensor(contactPin1);
+
+//CONTACT SENSOR #2
+  new SpanAccessory();      // Instantiating a new SpanAccessory object
+    new DEV_Identify("Contact Sensor 2","IPSOL Industries","M1-CS02","Smart Contact","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)
+    new DEV_ContactSensor(contactPin2);
 
 //RELAY SWITCH #1
   new SpanAccessory();      // Instantiating a new SpanAccessory object
