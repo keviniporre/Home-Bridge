@@ -19,7 +19,7 @@ int relayPin3 = 18;   // outside light
 int relayPin4 = 19;   // bar light
 int relayPin5 = 21;   // TV light
 // TOUCH INPUT SIGNAL PIN
-int touchPin1 = 26;   // main light
+int touchPin1 = 26;   // main light PIN 25 not workling
 int touchPin2 = 33;   // second light
 int touchPin3 = 32;   // outside light
 int touchPin4 = 35;   // bar light
@@ -45,7 +45,7 @@ void setup() {
 //////////////////////////////////////////////////////////
 
 //Creating the HAP Accessory Attribute Database
-  new SpanAccessory();       // Instantiating a new SpanAccessory object
+  new SpanAccessory();       // Bridge Accessory.  It contains no functional Services, just the Accessory Information Service
     new DEV_Identify("HomeKit Bridge","IPSOL Industries","M1-HKB01","Homekit Bridge M1","0.2",3);   // Identify(name,manufacturer,serialNumber,model,version,nBlinks)  
     new Service::HAPProtocolInformation();    // XXXXX************ PENDING INFO ****************************XXXXX
     new Characteristic::Version("1.1.0");

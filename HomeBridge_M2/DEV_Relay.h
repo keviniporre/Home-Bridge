@@ -25,8 +25,8 @@ boolean update() {      // update() method
 return(true);
 } // end update
 
-void turnON(){ digitalWrite(relayPin, LOW); } 
-void turnOFF(){ digitalWrite(relayPin, HIGH);}
+void turnON(){digitalWrite(relayPin, LOW);} 
+void turnOFF(){digitalWrite(relayPin, HIGH);}
 
 void loop(){
   if(digitalRead(touchPin)==HIGH){
