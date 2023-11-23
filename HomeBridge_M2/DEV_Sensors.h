@@ -135,7 +135,12 @@ struct DEV_ContactSensor : Service::ContactSensor {
         contact->setVal(contacted);
         if (contacted == HIGH){
           char c[64];
-          sprintf(c, "Contact was detected\n");
+          sprintf(c, "Door Open\n");
+          LOG1(c);
+        }
+        else {
+          char c[64];
+          sprintf(c, "Door Closed\n");
           LOG1(c);
         }
       }
